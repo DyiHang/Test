@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="second">
+
+<!-- 表中字段与属性名称不一致时 第一种解决方法：用列的别名 -->
+<select id="selectStu" parameterType="int" resultType="Stu">
+select sno no,sname name,sex,grade,tel from student where sno=#{sno}
+</select>
+</mapper>
