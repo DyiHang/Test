@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+namespace:命名空间:做唯一区分
+ -->
+ <!-- userGeneratedKeys：(只对insert有用)这会告诉mybatis使用JDBC的getGeneratedKey
+ 		 方法类取出由数据（比如：像mysql和sqlserver这样的数据库管理系统的自动递增字段） -->
+ <mapper namespace="fuzzy">
+ <select id="demoLine" parameterType="string" resultType="Emp1">
+ 	select * from empl where ename like#{ename}
+ </select>
+ <!-- 调用存储过程 -->
+ <select id="demoCallAble" parameterMap="mapDemo" statementType="CALLABLE">
+ call p_emp(?,?)
+ 
+ </select>
+ <parameterMap type="java.util.Map" id="mapDemo">
+ <!-- 指定输入参数 -->
+ <!-- 
+ 	property:在测试过程中的Map对象中的Key值
+ 	mode：模型类型 IN输入参数 INOPUT 输入输出参数OUT输出参数
+ 	jdbcType：JDBC支持的数据类型，与JAVA对象类型一直匹配
+  -->
+ <parameter property="job" mode="IN" jdbcType="CHAR"/>
+ <parameter property="count" mode="OUT" jdbcType="INTEGER"/>
+ 
+ </parameterMap>
+ </mapper>
