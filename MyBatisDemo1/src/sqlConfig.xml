@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		type：替换的类型
 		alias：别名 -->
 		<typeAliases>
+		<!-- <typeAlias type="cn.com.brain.mybatis.vo.Student" alias="Student"/> -->
 			<!-- 1.通过别名查找 -->
 			<package name="cn.com.mybatis.one2one"/>
 			<package name="cn.com.mybatils.inconformity"/>

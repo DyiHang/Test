@@ -27,4 +27,31 @@ namespace:命名空间:做唯一区分
  
  </resultMap>
  
+ 
+ 
+ <!-- 3次查询 -->
+ <select id="OneToMany01" parameterType="int" resultMap="ccs">
+ <!-- 从班级中查询出教师id -->
+ select * from classOneToMany where cid =#{cid} 
+ </select>
+<resultMap type="ClassOneToMany" id="ccs">
+<id property="cid" column="cid"/>
+<result property="cname" column="cname"/>
+<!-- 一对一映射 -->
+<association property="teacher" javaType="TeacherOneToMany" select="selectT" column="tid"></association>
+</resultMap> 
+ <select id="selectT" parameterType="int" resultMap="tType">
+ 	select * from TeacherOneToMany where tid=#{tid}
+ </select>
+ <resultMap type="TeacherOneToMany" id="tType">
+ <id property="tid" column="tid"/>
+ <result property="tname" column="tname"/>
+ <!-- 一对多映射 -->
+ <collection property="students" ofType="StudentOneToMany" select="selectS" column="tid"></collection>
+ </resultMap>
+ <!-- 从学生中根据教师id查询学生信息 -->
+ <select id="selectS" parameterType="int" resultType="StudentOneToMany">
+ 	select * from StudentOneToMany where tid=#{tid}
+ </select>
+ 
  </mapper>

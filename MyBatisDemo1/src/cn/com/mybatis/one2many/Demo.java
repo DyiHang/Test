@@ -15,7 +15,7 @@ public class Demo {
 		InputStream is = Resources.getResourceAsStream("sqlConfig.xml");
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
 		SqlSession session = factory.openSession(true);
-		String starament = "OneToMany";
+		String starament = "OneToMany01";
 		ClassOneToMany list = session.selectOne(starament, 101);
 		System.out.println(list);
 	}
