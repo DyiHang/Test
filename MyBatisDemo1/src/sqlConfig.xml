@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			<!-- 1.通过别名查找 -->
 			<package name="cn.com.mybatis.one2one"/>
 			<package name="cn.com.mybatils.inconformity"/>
+			<package name="cn.com.mybatis.one2many"/>
 		</typeAliases>
 <environments default="development">
 <environment id="development">
@@ -31,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 </environments>
 <mappers>
 			<!-- <mapper resource="cn/com/mybatis/one2one/sqlMapper.xml"/> -->
-			<mapper resource="cn/com/mybatils/inconformity/Stu.xml"/>
+			<!--  <mapper resource="cn/com/mybatils/inconformity/Stu.xml"/>-->
+			<mapper resource="cn/com/mybatis/one2many/Demo.xml"/>
 		</mappers>
 </configuration>

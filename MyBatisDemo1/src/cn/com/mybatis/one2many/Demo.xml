@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+namespace:命名空间:做唯一区分
+ -->
+ <!-- userGeneratedKeys：(只对insert有用)这会告诉mybatis使用JDBC的getGeneratedKey
+ 		 方法类取出由数据（比如：像mysql和sqlserver这样的数据库管理系统的自动递增字段） -->
+ <mapper namespace="Four">
+ <select id="OneToMany" parameterType="int" resultMap="cts">
+ select * from classOneToMany c,teacherOneToMany t,studentOneToMany s where c.tid=t.tid
+ and t.tid=c.tid and c.cid=#{cid}
+ </select>
+ <resultMap type="ClassOneToMany" id="cts">
+ <id column="cid" property="cid"/>
+ <result column="cname" property="cname"/>
+ 
+ <association property="teacher" javaType="TeacherOneToMany">
+ <id column="tid" property="tid"/>
+ <result column="tname" property="tname"/>
+ 
+ <collection property="students" ofType="StudentOneToMany">
+ <id  column="sid" property="sid" />
+ <result column="sname" property="sname"/>
+ </collection>
+ </association>
+ 
+ </resultMap>
+ 
+ </mapper>
