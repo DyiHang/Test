@@ -12,7 +12,7 @@ public class One2OneTest {
 public static void main(String[] args) throws IOException {
 	InputStream is = Resources.getResourceAsStream("sqlConfig.xml");
 	SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-	SqlSession session=factory.openSession();
+	SqlSession session=factory.openSession(true);
 	String staement = "Three.selectOne";
 	/*Class class1= session.selectOne(staement,1703);
 	System.out.println(class1);*/

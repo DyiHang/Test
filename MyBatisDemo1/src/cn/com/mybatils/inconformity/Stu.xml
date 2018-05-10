@@ -7,4 +7,12 @@
 <select id="selectStu" parameterType="int" resultType="Stu">
 select sno no,sname name,sex,grade,tel from student where sno=#{sno}
 </select>
+<!-- 
+resultMap:结果映射
+映射的返回值的类型与数据表的列的映射
+列名和
+ -->
+ <!-- <select id="selectStus" parameterType="int" resultMap="s">
+ 	select 
+ </select> -->
 </mapper>
