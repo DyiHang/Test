@@ -9,7 +9,7 @@ if v_num =0 then
 select count(*) into v_count from empl where job <> 'clerk';
 dbms_output.put_line(v_count);
 end if;
-end;
+end;、、、
 /
     
     

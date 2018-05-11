@@ -26,4 +26,63 @@ namespace:命名空间:做唯一区分
  <parameter property="count" mode="OUT" jdbcType="INTEGER"/>
  
  </parameterMap>
+ <!-- 动态sql语句 -->
+ <select id="demoif" parameterType="Emp" resultType="Emp">
+ select * from empl where 
+ 	<if test="ename!=null">
+ 		 ename = #{ename}
+ 	</if>
+ </select> 
+ <select id="demoWhen" resultType="Emp1">
+ select * from empl where 1=1
+ <choose>
+ 	<when test="ename!=null">
+ 		and ename = #{ename}
+ 	</when>
+ 	<when test="comm!=null or comm!=0.0">
+ 		and comm =#{comm}
+ 	</when>
+ 	<when test="job!='clerk'">
+ 		and job =#{job}
+ 	</when>
+ </choose>
+ </select>
+ 
+ <select id="demoTrim" resultType="Emp1">
+ select * from empl
+ <!-- 加where 去第一个and 不气第二个and -->
+ <trim prefix="where" prefixOverrides="and">
+ 
+ 	<if test="ename!=null">
+ 		 ename=#{ename}
+ 	</if>
+ 	<if test="job!='student'">
+ 		and job=#{job}
+ 	</if>
+ </trim>
+ </select>
+ <update id="demoSet" parameterType="Emp1">
+ update empl 
+ <set>
+ 	<if test="ename!=null">
+ 		ename =#{ename},
+ 	</if>
+ 	<if test="job!=null">
+ 	job=#{job},
+ 	</if>
+ 	<if test="sal!=0">
+ 		sal=#{sal},
+ 	</if>
+ 	<if test="comm!=0">
+ 		comm=#{comm}
+ 	</if>
+ 	<where>
+ 		<if test="empno!=null">
+ 			empno=#{empno}
+ 		</if>
+ 	</where>
+ </set>
+ </update>
+ 
  </mapper>
+ 
