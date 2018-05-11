@@ -7,8 +7,7 @@
 	select * from s_stu where s_no=#{id}
 </select>
 <update id="updateStu" parameterType="StudentCache">
-	upbate s_stu set s_name=#{s_name},
-	s_age=#{s_age},s_sex=#{s_sex} where s_no=#{s_no}
+	update s_stu set s_name=#{s_name},s_age=#{s_age},s_sesx=#{s_sesx} where s_no=#{s_no}
 
 </update>
 

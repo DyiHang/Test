@@ -7,7 +7,7 @@ public class StudentCache implements Serializable{
 	private int s_no;
 	private String s_name;
 	private int s_age;
-	private String s_sex;
+	private String s_sesx;
 	
 	
 	public StudentCache() {
@@ -15,12 +15,12 @@ public class StudentCache implements Serializable{
 	}
 
 
-	public StudentCache(int s_no, String s_name, int s_age, String s_sex) {
+	public StudentCache(int s_no, String s_name, int s_age, String s_sesx) {
 		super();
 		this.s_no = s_no;
 		this.s_name = s_name;
 		this.s_age = s_age;
-		this.s_sex = s_sex;
+		this.s_sesx = s_sesx;
 	}
 
 
@@ -54,20 +54,23 @@ public class StudentCache implements Serializable{
 	}
 
 
-	public String getS_sex() {
-		return s_sex;
+	public String getS_sesx() {
+		return s_sesx;
 	}
 
 
-	public void setS_sex(String s_sex) {
-		this.s_sex = s_sex;
+	public void setS_sesx(String s_sesx) {
+		this.s_sesx = s_sesx;
 	}
 
 
 	@Override
 	public String toString() {
-		return "StudentCache [s_no=" + s_no + ", s_name=" + s_name + ", s_age=" + s_age + ", s_sex=" + s_sex + "]";
+		return "StudentCache [s_no=" + s_no + ", s_name=" + s_name + ", s_age=" + s_age + ", s_sesx=" + s_sesx + "]";
 	}
+
+
+	
 	
 	
 
