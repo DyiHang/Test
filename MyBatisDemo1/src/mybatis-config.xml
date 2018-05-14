@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <properties resource="pb.properties"></properties> 
 	<typeAliases>
 		<package name="cn.com.mybatis.cache"/>
+		<package name="cn.com.mybatis.dynamicproxy"/>
 	</typeAliases>
 	<environments default="development">
 	<environment id="development">
@@ -27,8 +28,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 	
 	<mapper resource="cn/com/mybatis/cache/stuMapper.xml"/>
+
 	 <mapper class="cn.com.mybatis.cache.StuMapper1"/>
-	
+		<mapper resource="cn/com/mybatis/dynamicproxy/mapper.xml"/>
 	
 	</mappers>
 </configuration>
