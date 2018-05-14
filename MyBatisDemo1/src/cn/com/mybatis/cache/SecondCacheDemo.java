@@ -12,8 +12,8 @@ public class SecondCacheDemo {
 		SqlSession session1 =sf.openSession();
 		SqlSession session3 = sf.openSession();
 		
-		StudentCache s3 = session3.selectOne("findOne",1003);
-		System.out.println("s3===================>"+s3);
+		
+		System.out.println("s3===================>"+session3.selectOne("findOne",1003));
 		StudentCache stu=new StudentCache();
 		stu.setS_no(1003);
 		stu.setS_age(30);

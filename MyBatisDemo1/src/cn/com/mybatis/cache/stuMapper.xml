@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cache">
-<cache/>
+<cache readOnly="true"/>
 <select id="findOne" parameterType="int" resultType="StudentCache">
 	select * from s_stu where s_no=#{id}
 </select>

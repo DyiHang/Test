@@ -27,6 +27,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 	
 	<mapper resource="cn/com/mybatis/cache/stuMapper.xml"/>
+	 <mapper class="cn.com.mybatis.cache.StuMapper1"/>
 	
 	
 	</mappers>
