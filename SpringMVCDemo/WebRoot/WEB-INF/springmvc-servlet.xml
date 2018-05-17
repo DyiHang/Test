@@ -31,7 +31,8 @@
      </bean>
      
      <bean id="helloWorldController" class="cn.com.controller.HelloWorldController"/>
-     
+     <context:component-scan base-package="cn.com.controller.annotation"></context:component-scan>
+     <mvc:annotation-driven/>
      
      	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
